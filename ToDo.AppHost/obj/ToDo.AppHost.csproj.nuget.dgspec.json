@@ -69,6 +69,10 @@
             "Aspire.Hosting.Redis": {
               "target": "Package",
               "version": "[13.3.4, )"
+            },
+            "Aspire.Hosting.SqlServer": {
+              "target": "Package",
+              "version": "[13.3.4, )"
             }
           },
           "imports": [

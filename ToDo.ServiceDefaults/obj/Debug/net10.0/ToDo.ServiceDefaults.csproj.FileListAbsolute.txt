@@ -10,3 +10,4 @@ C:\Code\Webinar\DryRun\P0\ToDo\ToDo.ServiceDefaults\obj\Debug\net10.0\ToDo.Servi
 C:\Code\Webinar\DryRun\P0\ToDo\ToDo.ServiceDefaults\obj\Debug\net10.0\refint\ToDo.ServiceDefaults.dll
 C:\Code\Webinar\DryRun\P0\ToDo\ToDo.ServiceDefaults\obj\Debug\net10.0\ToDo.ServiceDefaults.pdb
 C:\Code\Webinar\DryRun\P0\ToDo\ToDo.ServiceDefaults\obj\Debug\net10.0\ref\ToDo.ServiceDefaults.dll
+C:\Code\Webinar\DryRun\P0\ToDo\ToDo.ServiceDefaults\obj\Debug\net10.0\ToDo.ServiceDefaults.sourcelink.json

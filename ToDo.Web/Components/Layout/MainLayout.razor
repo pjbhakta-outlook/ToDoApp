@@ -1,23 +1,28 @@
-﻿@inherits LayoutComponentBase
+@inherits LayoutComponentBase
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
-
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+<div class="flex min-h-screen bg-healdocs-bg">
+    <aside class="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0 z-20">
+        <div class="flex flex-col grow bg-transparent overflow-y-auto">
+            <NavMenu />
         </div>
+    </aside>
 
-        <article class="content px-4">
+    <div class="flex flex-col flex-1 md:pl-64">
+        <header class="sticky top-0 z-10 flex items-center justify-end h-14 px-6 bg-transparent">
+            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank"
+               class="text-sm text-healdocs-text-muted hover:text-healdocs-active-text transition-colors">
+                About
+            </a>
+        </header>
+
+        <main class="flex-1 p-6">
             @Body
-        </article>
-    </main>
+        </main>
+    </div>
 </div>
 
-<div id="blazor-error-ui">
+<div id="blazor-error-ui" class="hidden fixed bottom-0 left-0 right-0 z-50 bg-amber-50 text-amber-900 px-5 py-3 shadow-[0_-1px_4px_rgba(0,0,0,0.1)]">
     An unhandled error has occurred.
-    <a href="" class="reload">Reload</a>
-    <a class="dismiss">🗙</a>
+    <a href="" class="underline font-medium">Reload</a>
+    <a class="dismiss absolute right-3 top-2 cursor-pointer">&#10005;</a>
 </div>

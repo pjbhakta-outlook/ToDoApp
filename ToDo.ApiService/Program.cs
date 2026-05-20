@@ -1,17 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using ToDo.ApiService;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add service defaults & Aspire client integrations.
 builder.AddServiceDefaults();
 
-// Add services to the container.
 builder.Services.AddProblemDetails();
-
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+builder.AddSqlServerDbContext<TodoDbContext>("tododb");
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 app.UseExceptionHandler();
 
 if (app.Environment.IsDevelopment())
@@ -19,29 +19,52 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-string[] summaries = ["Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"];
-
-app.MapGet("/", () => "API service is running. Navigate to /weatherforecast to see sample data.");
-
-app.MapGet("/weatherforecast", () =>
+using (var scope = app.Services.CreateScope())
 {
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
+    var db = scope.ServiceProvider.GetRequiredService<TodoDbContext>();
+    db.Database.EnsureCreated();
+}
+
+app.MapGet("/", () => "Todo API service is running.");
+
+app.MapGet("/api/todos", async (TodoDbContext db) =>
+    await db.Todos.OrderByDescending(t => t.CreatedAt).ToListAsync());
+
+app.MapPost("/api/todos", async (CreateTodoRequest request, TodoDbContext db) =>
+{
+    var item = new TodoItem
+    {
+        Title = request.Title,
+        Description = request.Description ?? "",
+        CreatedAt = DateTime.UtcNow
+    };
+    db.Todos.Add(item);
+    await db.SaveChangesAsync();
+    return Results.Created($"/api/todos/{item.Id}", item);
+});
+
+app.MapPatch("/api/todos/{id}/toggle", async (int id, TodoDbContext db) =>
+{
+    var item = await db.Todos.FindAsync(id);
+    if (item is null) return Results.NotFound();
+
+    item.IsCompleted = !item.IsCompleted;
+    await db.SaveChangesAsync();
+    return Results.Ok(item);
+});
+
+app.MapDelete("/api/todos/{id}", async (int id, TodoDbContext db) =>
+{
+    var item = await db.Todos.FindAsync(id);
+    if (item is null) return Results.NotFound();
+
+    db.Todos.Remove(item);
+    await db.SaveChangesAsync();
+    return Results.NoContent();
+});
 
 app.MapDefaultEndpoints();
 
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
+public record CreateTodoRequest(string Title, string? Description);

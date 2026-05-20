@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@source "../Components/**/*.razor";
+@source "../Components/**/*.cshtml";
+
+@theme {
+  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  --color-healdocs-bg: #e8edf5;
+  --color-healdocs-sidebar: #ffffff;
+  --color-healdocs-card-pink: #fce4ec;
+  --color-healdocs-card-lavender: #ede7f6;
+  --color-healdocs-card-yellow: #fff9e6;
+  --color-healdocs-card-green: #e0f2e9;
+  --color-healdocs-accent: #e53935;
+  --color-healdocs-text: #1e293b;
+  --color-healdocs-text-muted: #64748b;
+  --color-healdocs-border: #e2e8f0;
+  --color-healdocs-active-bg: #eef2ff;
+  --color-healdocs-active-text: #4f46e5;
+}
+
+@layer base {
+  html, body {
+    @apply bg-healdocs-bg text-healdocs-text antialiased min-h-screen;
+  }
+
+  * {
+    @apply border-healdocs-border;
+  }
+}

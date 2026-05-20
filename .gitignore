@@ -1,0 +1,12 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+
+## Node
+node_modules/
+
+## Tailwind build output (regenerated from source)
+ToDo.Web/wwwroot/css/app.built.css

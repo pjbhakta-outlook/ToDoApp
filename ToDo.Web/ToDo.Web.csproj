@@ -14,4 +14,8 @@
     <PackageReference Include="Aspire.StackExchange.Redis.OutputCaching" Version="13.3.4" />
   </ItemGroup>
 
+  <Target Name="BuildTailwindCSS" BeforeTargets="Build">
+    <Exec Command="npm run css:build" WorkingDirectory="$(MSBuildProjectDirectory)" />
+  </Target>
+
 </Project>
