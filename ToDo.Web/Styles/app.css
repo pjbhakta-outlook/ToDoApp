@@ -4,7 +4,8 @@
 @source "../Components/**/*.cshtml";
 
 @theme {
-  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-sans: "Nunito", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-heading: "Quicksand", "Segoe UI", system-ui, -apple-system, sans-serif;
 
   --color-healdocs-bg: #e8edf5;
   --color-healdocs-sidebar: #ffffff;
@@ -23,6 +24,10 @@
 @layer base {
   html, body {
     @apply bg-healdocs-bg text-healdocs-text antialiased min-h-screen;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
   }
 
   * {
