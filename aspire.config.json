@@ -1,0 +1,5 @@
+{
+  "appHost": {
+    "path": "ToDo.AppHost/ToDo.AppHost.csproj"
+  }
+}

@@ -1,0 +1,12 @@
+C:\Code\Webinar\DryRun\P0\ToDo\ToDo.ServiceDefaults\bin\Debug\net10.0\ToDo.ServiceDefaults.deps.json
+C:\Code\Webinar\DryRun\P0\ToDo\ToDo.ServiceDefaults\bin\Debug\net10.0\ToDo.ServiceDefaults.dll
+C:\Code\Webinar\DryRun\P0\ToDo\ToDo.ServiceDefaults\bin\Debug\net10.0\ToDo.ServiceDefaults.pdb
+C:\Code\Webinar\DryRun\P0\ToDo\ToDo.ServiceDefaults\obj\Debug\net10.0\ToDo.ServiceDefaults.csproj.AssemblyReference.cache
+C:\Code\Webinar\DryRun\P0\ToDo\ToDo.ServiceDefaults\obj\Debug\net10.0\ToDo.ServiceDefaults.GeneratedMSBuildEditorConfig.editorconfig
+C:\Code\Webinar\DryRun\P0\ToDo\ToDo.ServiceDefaults\obj\Debug\net10.0\ToDo.ServiceDefaults.AssemblyInfoInputs.cache
+C:\Code\Webinar\DryRun\P0\ToDo\ToDo.ServiceDefaults\obj\Debug\net10.0\ToDo.ServiceDefaults.AssemblyInfo.cs
+C:\Code\Webinar\DryRun\P0\ToDo\ToDo.ServiceDefaults\obj\Debug\net10.0\ToDo.ServiceDefaults.csproj.CoreCompileInputs.cache
+C:\Code\Webinar\DryRun\P0\ToDo\ToDo.ServiceDefaults\obj\Debug\net10.0\ToDo.ServiceDefaults.dll
+C:\Code\Webinar\DryRun\P0\ToDo\ToDo.ServiceDefaults\obj\Debug\net10.0\refint\ToDo.ServiceDefaults.dll
+C:\Code\Webinar\DryRun\P0\ToDo\ToDo.ServiceDefaults\obj\Debug\net10.0\ToDo.ServiceDefaults.pdb
+C:\Code\Webinar\DryRun\P0\ToDo\ToDo.ServiceDefaults\obj\Debug\net10.0\ref\ToDo.ServiceDefaults.dll
