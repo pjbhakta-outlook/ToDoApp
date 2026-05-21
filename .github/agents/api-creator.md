@@ -3,6 +3,7 @@ name: api-creator
 description: "Specialized agent for creating, modifying, and testing API endpoints in the ToDo.ApiService project. Delegates to the api-creator skill for vertical slice architecture patterns, testing conventions, and build commands."
 skills:
   - api-creator
+  - api-versioning
 ---
 
 # API Creator Agent
