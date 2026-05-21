@@ -1,0 +1,44 @@
+{
+  "agents": {
+    "stark": {
+      "persistent_name": "Stark",
+      "universe": "Marvel Cinematic Universe",
+      "created_at": "2026-05-21T10:58:00Z",
+      "legacy_named": false,
+      "status": "active",
+      "role": "Lead"
+    },
+    "parker": {
+      "persistent_name": "Parker",
+      "universe": "Marvel Cinematic Universe",
+      "created_at": "2026-05-21T10:58:00Z",
+      "legacy_named": false,
+      "status": "active",
+      "role": "Frontend Dev"
+    },
+    "rhodey": {
+      "persistent_name": "Rhodey",
+      "universe": "Marvel Cinematic Universe",
+      "created_at": "2026-05-21T10:58:00Z",
+      "legacy_named": false,
+      "status": "active",
+      "role": "Backend Dev"
+    },
+    "banner": {
+      "persistent_name": "Banner",
+      "universe": "Marvel Cinematic Universe",
+      "created_at": "2026-05-21T10:58:00Z",
+      "legacy_named": false,
+      "status": "active",
+      "role": "Tester"
+    },
+    "friday": {
+      "persistent_name": "Friday",
+      "universe": "Marvel Cinematic Universe",
+      "created_at": "2026-05-21T10:58:00Z",
+      "legacy_named": false,
+      "status": "active",
+      "role": "DevOps / Aspire Expert"
+    }
+  }
+}

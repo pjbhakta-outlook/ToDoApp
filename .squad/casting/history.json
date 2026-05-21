@@ -1,0 +1,17 @@
+{
+  "universe_usage_history": [
+    {
+      "universe": "Marvel Cinematic Universe",
+      "assigned_at": "2026-05-21T10:58:00Z",
+      "repo": "pjbhakta-outlook/ToDoApp"
+    }
+  ],
+  "assignment_cast_snapshots": {
+    "2026-05-21T10:58:00Z": {
+      "assignment_id": "mcu-todo-001",
+      "universe": "Marvel Cinematic Universe",
+      "agents": ["stark", "parker", "rhodey", "banner", "friday"],
+      "reason": "User requested MCU universe for ToDo .NET Aspire project"
+    }
+  }
+}
