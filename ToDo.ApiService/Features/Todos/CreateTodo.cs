@@ -14,6 +14,7 @@ public static class CreateTodo
             {
                 Title = request.Title,
                 Description = request.Description ?? "",
+                ListId = 1, // Default list
                 CreatedAt = DateTime.UtcNow
             };
             db.Todos.Add(item);
@@ -21,7 +22,7 @@ public static class CreateTodo
             return Results.Created($"/api/todos/{item.Id}", item);
         })
         .WithName("CreateTodo")
-        .WithDescription("Creates a new todo item.")
+        .WithDescription("Creates a new todo item in the default list.")
         .Produces<TodoItem>(StatusCodes.Status201Created)
         .ProducesValidationProblem();
     }

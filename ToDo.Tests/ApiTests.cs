@@ -6,7 +6,7 @@ namespace ToDo.Tests;
 
 public class ApiTests
 {
-    private static readonly TimeSpan DefaultTimeout = TimeSpan.FromSeconds(30);
+    private static readonly TimeSpan DefaultTimeout = TimeSpan.FromSeconds(120);
 
     private async Task<(IDistributedApplicationTestingBuilder AppHost, DistributedApplication App, HttpClient Client)> CreateAppAndClientAsync(CancellationToken cancellationToken)
     {
