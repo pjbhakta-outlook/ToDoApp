@@ -2,7 +2,9 @@ var builder = DistributedApplication.CreateBuilder(args);
 
 var cache = builder.AddRedis("cache");
 
-var sql = builder.AddSqlServer("sqlserver");
+var sql = builder.AddSqlServer("sqlserver")
+    .WithLifetime(ContainerLifetime.Persistent)
+    .WithDataVolume();
 var tododb = sql.AddDatabase("tododb");
 
 var apiService = builder.AddProject<Projects.ToDo_ApiService>("apiservice")
