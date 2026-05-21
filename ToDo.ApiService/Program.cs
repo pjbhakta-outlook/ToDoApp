@@ -1,5 +1,5 @@
-using Microsoft.EntityFrameworkCore;
-using ToDo.ApiService;
+using ToDo.ApiService.Data;
+using ToDo.ApiService.Features.Todos;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +7,8 @@ builder.AddServiceDefaults();
 
 builder.Services.AddProblemDetails();
 builder.Services.AddOpenApi();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 builder.AddSqlServerDbContext<TodoDbContext>("tododb");
 
@@ -17,6 +19,8 @@ app.UseExceptionHandler();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 using (var scope = app.Services.CreateScope())
@@ -25,46 +29,14 @@ using (var scope = app.Services.CreateScope())
     db.Database.EnsureCreated();
 }
 
-app.MapGet("/", () => "Todo API service is running.");
+app.MapGet("/", () => Results.Redirect("/swagger"));
 
-app.MapGet("/api/todos", async (TodoDbContext db) =>
-    await db.Todos.OrderByDescending(t => t.CreatedAt).ToListAsync());
-
-app.MapPost("/api/todos", async (CreateTodoRequest request, TodoDbContext db) =>
-{
-    var item = new TodoItem
-    {
-        Title = request.Title,
-        Description = request.Description ?? "",
-        CreatedAt = DateTime.UtcNow
-    };
-    db.Todos.Add(item);
-    await db.SaveChangesAsync();
-    return Results.Created($"/api/todos/{item.Id}", item);
-});
-
-app.MapPatch("/api/todos/{id}/toggle", async (int id, TodoDbContext db) =>
-{
-    var item = await db.Todos.FindAsync(id);
-    if (item is null) return Results.NotFound();
-
-    item.IsCompleted = !item.IsCompleted;
-    await db.SaveChangesAsync();
-    return Results.Ok(item);
-});
-
-app.MapDelete("/api/todos/{id}", async (int id, TodoDbContext db) =>
-{
-    var item = await db.Todos.FindAsync(id);
-    if (item is null) return Results.NotFound();
-
-    db.Todos.Remove(item);
-    await db.SaveChangesAsync();
-    return Results.NoContent();
-});
+// Map feature endpoints (literal segments before parameterized routes)
+GetAllTodos.MapEndpoint(app);
+CreateTodo.MapEndpoint(app);
+ToggleTodo.MapEndpoint(app);
+DeleteTodo.MapEndpoint(app);
 
 app.MapDefaultEndpoints();
 
 app.Run();
-
-public record CreateTodoRequest(string Title, string? Description);

@@ -8,7 +8,8 @@ var tododb = sql.AddDatabase("tododb");
 var apiService = builder.AddProject<Projects.ToDo_ApiService>("apiservice")
     .WithHttpHealthCheck("/health")
     .WithReference(tododb)
-    .WaitFor(tododb);
+    .WaitFor(tododb)
+    .WithExternalHttpEndpoints();
 
 builder.AddProject<Projects.ToDo_Web>("webfrontend")
     .WithExternalHttpEndpoints()
