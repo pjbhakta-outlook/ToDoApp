@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.StackExchange.Redis.OutputCaching" Version="13.3.4" />
+    <PackageReference Include="Aspire.StackExchange.Redis.OutputCaching" Version="13.4.3" />
   </ItemGroup>
 
   <Target Name="BuildTailwindCSS" BeforeTargets="Build">
